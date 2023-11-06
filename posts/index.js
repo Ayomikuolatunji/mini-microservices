@@ -22,7 +22,6 @@ app.post("/posts", async (req, res) => {
     id,
     title,
   };
-
   await axios.post("http://localhost:4005/events", {
     type: "PostCreated",
     data: {
@@ -30,7 +29,6 @@ app.post("/posts", async (req, res) => {
       title,
     },
   });
-
   res.status(201).send(posts[id]);
 });
 
@@ -40,6 +38,14 @@ app.post("/events", (req, res) => {
   res.send({});
 });
 
+app.get(" ", (req, res, next) => {
+  try {
+    res.status(200).json({ message: "Api is healthy and working" })
+  } catch (error) {
+    next(error)
+  }
+})
+
 app.listen(4000, () => {
-  console.log("Listening on 4000");
+  console.log("Listening on 4000", "v2");
 });
