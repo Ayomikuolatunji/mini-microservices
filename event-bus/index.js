@@ -25,7 +25,7 @@ app.post("/events", (req, res) => {
     console.log(err.message);
   });
   res.send({ status: "OK" });
-}); 
+});
 
 app.get("/events", (req, res) => {
   res.send(events);

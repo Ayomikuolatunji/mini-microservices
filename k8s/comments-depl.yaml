@@ -1,6 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata: 
+metadata:
   name: comments-depl
 spec:
   replicas: 1
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: comments
-          image: ayomikuolatunji/comments
+          image: cygnetops/comments-84
 ---
 apiVersion: v1
 kind: Service
@@ -23,9 +23,8 @@ metadata:
 spec:
   selector:
     app: comments
-  ports: 
+  ports:
     - name: comments
       protocol: TCP
       port: 4001
-      targetPort: 4001    
-
+      targetPort: 4001
