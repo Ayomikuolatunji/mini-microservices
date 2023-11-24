@@ -1,0 +1,58 @@
+apiVersion: skaffold/v2alpha3
+kind: Config
+deploy:
+  kubectl:
+    remoteManifests:
+      - ./k8s/*
+build:
+  local:
+    push: false
+  artifacts:
+    - image: ayomikuolatunji/client
+      context: client
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - dest: . 
+            src: "src/**/*.js"
+    - image: ayomikuolatunji/posts
+      context: posts
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - dest: . 
+            src: "*.js"
+    - image: ayomikuolatunji/comments
+      context: comments
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - dest: . 
+            src: "*.js"
+    - image: ayomikuolatunji/query
+      context: query
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - dest: . 
+            src: "*.js"
+    - image: ayomikuolatunji/moderation
+      context: moderation
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - dest: . 
+            src: "*.js" 
+    - image: ayomikuolatunji/event-bus
+      context: event-bus
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - dest: . 
+            src: "*.js"                                                                                      

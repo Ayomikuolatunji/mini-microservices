@@ -1,5 +1,6 @@
 {
   "yaml.schemas": {
     "kubernetes://schema/apps/v1%40deployment": "file:///Users/apple/Downloads/blog/infra/k8s/posts-depl.yaml"
-  }
+  },
+  "cSpell.words": ["ayomikuolatunji"]
 }
